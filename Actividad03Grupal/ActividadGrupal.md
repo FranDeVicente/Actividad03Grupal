@@ -1,32 +1,32 @@
-![portada](Imagenes/portada.png)
+![portada](ImagenesBBDD/portada.png)
 
 # Enunciado #
 
 ## Requerimiento 1 - Base de datos ##
 
-![enunciado1](Imagenes/Enunciado1.png)
+![enunciado1](ImagenesBBDD/Enunciado1.png)
 
 **Primero:** Tenemos que tener instalado Apache Tomcat. Para ello, abrimos nuestra terminal de Ubuntu. Tenemos que comprobar si tenemos instalado java, ya que sin ello no podremos acceder al servidor. Podemos comprobarlo con el siguiente comando:
 
 	- java -version
 
-![comando1](Imagenes/comando1.png)
+![comando1](ImagenesBBDD/comando1.png)
 
 Como vemos, no tenemos instalado java. Para instalarlo, utilizamos el comando que nos sugiere Ubuntu:
 
 	- sudo apt install default-jre
 
-![comando2](Imagenes/comando2.png)
+![comando2](ImagenesBBDD/comando2.png)
 
 Una vez lo hayamos instalado, podemos volver a ejecutar el primer comando *java -version* para comprobar que se ha instalado correctamente y además, ver qué versión de java tenemos. 
 
-![comando3](Imagenes/comando3.png)
+![comando3](ImagenesBBDD/comando3.png)
 
 **Segundo:** Ahora que ya tenemos java instalado, vamos a proceder a instalar nuestro servidor Tomcat. Para ello, ejecutamos el siguiente comando:
 
 	- sudo apt install tomcat9
 
-![comando4](Imagenes/comando4.png)
+![comando4](ImagenesBBDD/comando4.png)
 
 **Nota:** Accedemos en nuestro navegador web y escribimos en la barra de dirección de búsqueda "localhost:8080". Nos aparecerá la página de tomcat que nos indicará que hemos instalado correctamente el servidor. La misma página nos indica también que al instalar tomcat9, necesitaremos tener instalada su documentación correspondiente tales como "docs", "examples" y "admin". Para poder instalar la documentación simplemente ejecutamos en nuestro terminal los siguientes comandos:
 
@@ -39,7 +39,7 @@ Una vez hayamos descargado la documentación, comprobamos el estado del tomcat p
 	- systemctl status tomcat9
 	- sudo ufw allow 8080/tcp (para que escuche por el puerto 80)
 
-![comando5](Imagenes/comando5.png)
+![comando5](ImagenesBBDD/comando5.png)
 
 
 **Tercero:** Ahora que ya tenemos tomcat instalado, hemos descargado su documentación y hemos comprobado que se está ejecutando, vamos a acceder a dichos documentos para modificarlos y poder acceder al servidor desde nuestro localhost.  
@@ -49,7 +49,7 @@ El primer documento al que vamos a acceder, es el documento de los usuarios. Eje
 	- sudo nano /etc/tomcat9/tomcat-users.xml
 
 Nos aparecerá el siguiente documento:
-![comando6](Imagenes/comando6.png)
+![comando6](ImagenesBBDD/comando6.png)
 
 Nos fijamos que en el documento aparece comentado los usuarios de tomcat. Esta parte del documento habrá que modificarla.
 
@@ -57,7 +57,7 @@ Lo que hacemos es descomentar los usuarios que vienen por defecto y en ellos, mo
 
 El primer rol, será el de “manager-gui” y el segundo rol, el de “admin-gui” y como usuarios, vamos a dejar uno que será “admin” con password “admin” y role “manager-gui,admin-gui”. Insistiendo en que este usuario será el primero e iremos modificando más adelante si es preciso. 
 
-![comando7](Imagenes/comando7.png)
+![comando7](ImagenesBBDD/comando7.png)
 
 Ahora que ya tenemos nuestros usuarios modificados, vamos a parar y arrancar de nuevo el servidor tomcat. Para ello, ejecutamos los siguientes comandos:
 
@@ -71,7 +71,7 @@ Una vez reiniciado el servidor, vamo a acceder a los siguientes documentos. Esto
 
 Ambos documentos deberán aparecer así:
 
-![comando8](Imagenes/comando8.png)
+![comando8](ImagenesBBDD/comando8.png)
 
 Cuando hayamos comprobado que ambos documentos aparecen iguales, salimos del *context.xml* y reiniciamos el tomcat con el comando
 
@@ -79,15 +79,15 @@ Cuando hayamos comprobado que ambos documentos aparecen iguales, salimos del *co
 
 Y una vez hayamos reiniciado el servidor, nos dirigimos nuevamente a nuestro navegador y escribimos en la dirección de búsqueda “localhost:8080/manager/html” y nos deberá aparecer la página principal del manager de tomcat.
 
-![comando9](Imagenes/comando9.png)
+![comando9](ImagenesBBDD/comando9.png)
 
 **Cuarto:** Ya tenemos todo a punto para manejar tomcat. Ahora, lo que vamos a hacer es desplegar el archivo war que facilita el profesor en su proyecto git. Lo descargamos en nuestra máquina virtual y en el apartado de tomcat donde dice "desplegar archivo war" lo subimos. 
 
-![descargaWar](Imagenes/descargaWar.png)
+![descargaWar](ImagenesBBDD/descargaWar.png)
 
 Una vez hemos cargado el archivo, en el apartado "Aplicaciones" de nuestro tomcat, aparecerá. Pulsamos en el y nos lleva a la página de bienvenida. Si intentamos acceder a la Base de Datos, nos aparecerá en blanco porque aún no la hemos cargado. 
 
-![cargaWar](Imagenes/cargaWar.png)
+![cargaWar](ImagenesBBDD/cargaWar.png)
 
 
 
@@ -99,7 +99,7 @@ Para la instalación de MySQL, ejecutamos el siguiente comando:
 
 	- sudo apt install mysql-server
 
-![comando10](Imagenes/comando10.png)
+![comando10](ImagenesBBDD/comando10.png)
 
 Una vez hemos instalado MySQL, ahora vamos a dar una contraseña. Ejecutamos el comando:
 
@@ -109,13 +109,13 @@ Con este último comando, podemos acceder con nuestra contraseña del S.O. o cam
 
 El comando anterior nos irá preguntando modalidades como ¿desea utilizar su contraseña habitual?¿quiere eliminar el usuario anónimo? etc.
 
-![comando11](Imagenes/comando11.png)
+![comando11](ImagenesBBDD/comando11.png)
 
 Una vez hemos configurado las opciones que se muestran en la imagen anterior, ahora iniciamos MySQL con el comando
 
 	- sudo mysql -u root -p
 
-![comando12](Imagenes/comando12.png)
+![comando12](ImagenesBBDD/comando12.png)
 
 Cuando estamos dentro de mysql, lo siguiente que vamos a hacer es crear la tabla con los datos que se adjuntan en el enunciado. 
 
@@ -124,11 +124,11 @@ Para crear la tabla usamos el comando
 	- CREATE DATABAS nombreBaseDatos;
 	- show databases; (Para comprobar que la hemos creado correctamente)
 
-![comando13](Imagenes/comando13.png)
+![comando13](ImagenesBBDD/comando13.png)
 
 Cuando ya hemos creado la BBDD, el siguiente paso es crear la tabla. Vamos a seguir el patrón del enunciado y creamos la tabla personas con los datos del DNI como primaryKey, el nombre y apellidos. **Se ejecuta todo el comando en la misma línea** el patrón que tenemos que seguir es **CREATE TABLE nombreTabla (campo tipoDato(caracteres) primaryKey)** y todos los datos que queramos añadir separados entre comas.
 
-![comando14](Imagenes/comando14.png) 
+![comando14](ImagenesBBDD/comando14.png)
 
 
 **Sexto:** Ahora tenemos que cambiar el recurso que se indica en el ejercicio para ello tenemos que acceder al **context** de tomcat. Utilizamos el comando:
@@ -137,48 +137,48 @@ Cuando ya hemos creado la BBDD, el siguiente paso es crear la tabla. Vamos a seg
 
 Una vez hemos accedido, procedemos a modificar el contenido como se indica en los apuntes
 
-![comando15](Imagenes/comando15.png)
+![comando15](ImagenesBBDD/comando15.png)
 
 Guardamos el archivo pulsando ^x  y volvemos a restablecer el tomcat con el comando “systemctl tomcat9 restart”. Una vez lo hayamos reseteado, volvemos a acceder a la BBDD
 
-![coma16](Imagenes/coma16.png)
+![coma16](ImagenesBBDD/coma16.png)
 
 **Séptimo** Nos encontramos con el problema de que no podemos acceder. Para solucionar este inconveniente, tenemos que descargarnos el conector de mysql. Para ello, nos dirigimos a: **https://mvnrepository.com/artifact/mysql/mysql-connector-java** y descargamos el que sea acorde a nuestro mysql. 
 
-![comando16](Imagenes/comando16.png)
+![comando16](ImagenesBBDD/comando16.png)
 
 Una vez lo hayamos descargado, tenemos que llevar el archivo a la librería del tomcat. Cuando lo hayamos pegado en dicha carpeta, procedemos a extraerlo en la misma. 
 
-![comando17](Imagenes/comando17.png)
+![comando17](ImagenesBBDD/comando17.png)
 
 
 **Nota:** Si vemos que no conecta la BBDD, tenemos que volver a resetear el servidor y comprobar que tenemos los puertos abiertos en el firewall 
 
-![comando24](Imagenes/comando24.png)
+![comando24](ImagenesBBDD/comando24.png)
 
 **Octavo:** Volvemos a acceder a la BBDD y vemos como ya sí que se visualiza correctamente
 
-![comando18](Imagenes/comando18.png)
+![comando18](ImagenesBBDD/comando18.png)
 
 Por último, podemos insertar datos bien utilizando el entorno gráfico que nos aparece en el localhost o bien por comandos. El uso del comando se procesa de la siguiente estructura:
 
 	- Insert into Table (atributo) values (valor);
 
 **Ejemplo:**
-![comando19](Imagenes/comando19.png)
+![comando19](ImagenesBBDD/comando19.png)
 
 **Nota:** Podemos hacerlo mediante entorno gráfico también a través de workbench (o cualquier otra base de datos) primero tenemos que asegurarnos que establece la conexión perfectamente usando nuestro usuario y contraseña:
 
-![comando20](Imagenes/comando20.png)
+![comando20](ImagenesBBDD/comando20.png)
 
 **Noveno:** Insertamos los campos como se indica en el enunciado
-![comando22](Imagenes/comando22.png)
+![comando22](ImagenesBBDD/comando22.png)
 
-![comando21](Imagenes/comando21.png)
+![comando21](ImagenesBBDD/comando21.png)
 
 Finalmente, volvemos a cargar la página de la BBDD y comprobamos que se han insertado correctamente los campos:
 
-![comando25](Imagenes/comando25.png)
+![comando25](ImagenesBBDD/comando25.png)
 
 
 ## Requerimiento 2 - Apache CDN ##
