@@ -1,0 +1,8 @@
+Subir a gitHub.
+
+1.- pulsar sobre la carpeta que vamos a subir archivos con el botón derecho del ratón y pulsar en "git Bush"
+2.- escribir "git init"
+3.- escribimos "git clone link_RepositorioGit"
+4.- git status
+5.- git add . (con el punto)
+6.- 
